@@ -1,0 +1,519 @@
+/* --- RESET & FONTS --- */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #faf6f0;
+  color: #2b1b17;
+}
+
+/* --- NAVIGATION BAR --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  background: linear-gradient(135deg, #4a3728 0%, #2b1b17 100%);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+}
+.logo-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #d4a373;
+}
+.logo-area span {
+  color: #d4a373;
+}
+nav a {
+  color: #f5ebe0;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 500;
+}
+nav a:hover {
+  color: #d4a373;
+}
+
+/* --- HERO BANNER --- */
+.hero-banner {
+  height: 45vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+  background:
+    linear-gradient(rgba(43, 27, 23, 0.65), rgba(74, 55, 40, 0.75)),
+    url("banneerr.jpg") no-repeat center center;
+  background-size: cover;
+}
+.hero-content h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: white;
+}
+.hero-content h1 span {
+  color: #d4a373;
+}
+.hero-content p {
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+  color: #f5ebe0;
+}
+
+/* --- SEKSI PROMOSI & JADWAL --- */
+.promo-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  padding: 30px 5% 10px 5%;
+}
+.promo-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(74, 55, 40, 0.05);
+  border-left: 5px solid #d4a373;
+}
+.promo-card h3 {
+  color: #4a3728;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.promo-card ul {
+  list-style-type: none;
+}
+.promo-card li {
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: #5c4d4d;
+}
+
+/* --- MAIN LAYOUT & TAB KATALOG --- */
+.main-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+  padding: 20px 5% 40px 5%;
+}
+@media (max-width: 992px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.menu-tabs {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+.tab-btn {
+  padding: 10px 25px;
+  border: 2px solid #4a3728;
+  background: transparent;
+  color: #4a3728;
+  border-radius: 25px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.tab-btn.active,
+.tab-btn:hover {
+  background: linear-gradient(135deg, #4a3728 0%, #2b1b17 100%);
+  color: white;
+  border-color: #2b1b17;
+}
+
+/* SUB-TAB STYLING */
+.sub-tab-btn {
+  padding: 6px 16px;
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #4a3728;
+}
+.sub-tab-btn.sub-active,
+.sub-tab-btn:hover {
+  background-color: #d4a373;
+  color: white;
+  border-color: #d4a373;
+}
+
+.menu-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 1200px) {
+  .menu-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 768px) {
+  .menu-container {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+/* --- KARTU MENU KATALOG --- */
+.menu-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(74, 55, 40, 0.05);
+  border: 1px solid #eddcd2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+}
+.menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(74, 55, 40, 0.15);
+  border-color: #d4a373;
+}
+.menu-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+.menu-card h3 {
+  font-size: 16px;
+  color: #2b1b17;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+.menu-card .desc {
+  font-size: 11px;
+  color: #7f6a63;
+  margin-bottom: 10px;
+  height: 32px;
+  overflow: hidden;
+}
+
+.options-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+  background: #fffcf9;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px dashed #d4a373;
+}
+.option-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: #4a3728;
+}
+.option-row select {
+  padding: 3px 6px;
+  border-radius: 4px;
+  border: 1px solid #cbd5e1;
+  background: white;
+  font-size: 11px;
+  color: #2b1b17;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid #f5ebe0;
+}
+.card-price {
+  font-size: 16px;
+  font-weight: 700;
+  color: #b7875b;
+}
+.add-btn {
+  padding: 6px 14px;
+  background: linear-gradient(135deg, #4a3728 0%, #2b1b17 100%);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.add-btn:hover {
+  background: linear-gradient(135deg, #d4a373 0%, #b7875b 100%);
+  color: white;
+}
+
+/* --- SIDEBAR PANEL KERANJANG --- */
+.cart-panel {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(74, 55, 40, 0.1);
+  border: 2px solid #d4a373;
+  height: fit-content;
+  position: sticky;
+  top: 90px;
+}
+.cart-panel h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #d4a373;
+  padding-bottom: 5px;
+  color: #2b1b17;
+  font-weight: 700;
+}
+.cart-items {
+  max-height: 240px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 13px;
+}
+.cart-item-details p {
+  font-weight: 700;
+  color: #2b1b17;
+}
+.cart-item-details span {
+  font-size: 11px;
+  color: #7f6a63;
+  display: block;
+}
+.cart-item-qty {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cart-item-qty button {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid #cbd5e1;
+  background: white;
+  cursor: pointer;
+  font-weight: bold;
+  color: #4a3728;
+}
+
+.cart-meta-group {
+  background: #faf6f0;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid #eddcd2;
+}
+.cart-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #4a3728;
+}
+.cart-meta-row select {
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #cbd5e1;
+  font-size: 12px;
+}
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  border-top: 2px solid #4a3728;
+  color: #2b1b17;
+}
+.checkout-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #4a3728 0%, #2b1b17 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.checkout-btn:hover {
+  background: linear-gradient(135deg, #d4a373 0%, #b7875b 100%);
+}
+
+/* --- MODAL / POPUP ANIMASI SUKSES CHECKOUT --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(43, 27, 23, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(20px);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 3px solid #d4a373;
+}
+
+.modal-overlay.active .modal-content {
+  transform: translateY(0);
+}
+
+.success-icon {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+.modal-content h2 {
+  color: #2b1b17;
+  font-size: 20px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.modal-content p {
+  color: #7f6a63;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.modal-receipt {
+  background: #faf6f0;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 12px;
+  text-align: left;
+  color: #4a3728;
+  margin-bottom: 20px;
+  border: 1px dashed #d4a373;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.modal-close-btn {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(135deg, #4a3728 0%, #2b1b17 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.modal-close-btn:hover {
+  background: linear-gradient(135deg, #d4a373 0%, #b7875b 100%);
+}
+
+/* --- FOOTER KOMERSIAL --- */
+footer {
+  background: #2b1b17;
+  color: #cbaea6;
+  padding: 30px 5%;
+  font-size: 13px;
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  text-align: left;
+  border-top: 4px solid #d4a373;
+}
+.footer-box h4 {
+  color: #d4a373;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 700;
+}
+.footer-bottom {
+  grid-column: 1 / -1;
+  text-align: center;
+  border-top: 1px solid #4a3728;
+  padding-top: 15px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #7f6a63;
+}
+.wa-footer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  margin-top: 10px;
+}

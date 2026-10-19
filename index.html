@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kopi JM - Aplikasi Pemesanan Cafe</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="logo-area">
+        <img src="logo.jpg" alt="Logo Kopi JM" class="logo-img" />
+        Kopi<span>JM</span>
+      </div>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#menu-section">Katalog</a>
+        <a href="#footer">Kontak</a>
+      </nav>
+    </header>
+
+    <!-- HERO BANNER -->
+    <section id="home" class="hero-banner">
+      <div class="hero-content">
+        <h1>Freshness di <span>Kopi JM</span></h1>
+        <p>
+          Nikmati kesegaran cita rasa minuman premium dan sajian kuliner cafe
+          autentik secara online maupun offline.
+        </p>
+      </div>
+    </section>
+
+    <!-- SEKSI PROMOSI & JADWAL BUKA -->
+    <section class="promo-section">
+      <div class="promo-card">
+        <h3>Mengapa Harus Memilih Kopi JM?</h3>
+        <ul>
+          <li>
+            ✨ <b>Bahan Premium Pilihan:</b> Kopi dan kuliner segar berkualitas
+            tinggi.
+          </li>
+          <li>
+            🚀 <b>Fleksibilitas Pelayanan:</b> Mendukung pesan-antar online &
+            makan di tempat.
+          </li>
+          <li>
+            🎯 <b>Kustomisasi Penuh:</b> Bebas atur porsi, takaran gula, dan
+            level kepedasan.
+          </li>
+        </ul>
+      </div>
+      <div class="promo-card">
+        <h3>Jam Operasional Kedai</h3>
+        <ul>
+          <li>📅 <b>Weekday (Senin - Jumat):</b> 09:00 WIB - 22:00 WIB</li>
+          <li>
+            🎉 <b>Weekend (Sabtu - Minggu):</b> 09:00 WIB - 00:00 WIB (Tengah
+            Malam)
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- MAIN LAYOUT -->
+    <main class="main-layout" id="menu-section">
+      <div class="catalog-area">
+        <!-- TAB UTAMA -->
+        <div class="menu-tabs">
+          <button class="tab-btn active" id="tab-minuman-master">
+            🧋 Varian Minuman
+          </button>
+          <button class="tab-btn" id="tab-makanan-master">
+            🍔 Varian Makanan
+          </button>
+        </div>
+
+        <!-- PANEL SUB-TAB MINUMAN -->
+        <div
+          class="sub-tabs-container active"
+          id="sub-tabs-minuman"
+          style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap"
+        >
+          <button
+            class="sub-tab-btn sub-active"
+            onclick="filterMenu('minuman', 'kopi')"
+          >
+            ☕ Coffee
+          </button>
+          <button
+            class="sub-tab-btn"
+            onclick="filterMenu('minuman', 'susu-coklat-matcha')"
+          >
+            🫖 Tea & Susu
+          </button>
+          <button
+            class="sub-tab-btn"
+            onclick="filterMenu('minuman', 'air-mineral')"
+          >
+            💧 Air Mineral
+          </button>
+        </div>
+
+        <!-- PANEL SUB-TAB MAKANAN -->
+        <div
+          class="sub-tabs-container"
+          id="sub-tabs-makanan"
+          style="display: none; gap: 10px; margin-bottom: 20px; flex-wrap: wrap"
+        >
+          <button class="sub-tab-btn" onclick="filterMenu('makanan', 'nasgor')">
+            🍚 Nasi Goreng
+          </button>
+          <button
+            class="sub-tab-btn"
+            onclick="filterMenu('makanan', 'mie-pasta')"
+          >
+            🍜 Mie & Pasta
+          </button>
+          <button
+            class="sub-tab-btn"
+            onclick="filterMenu('makanan', 'kentang')"
+          >
+            🍟 Camilan Kentang
+          </button>
+          <button
+            class="sub-tab-btn"
+            onclick="filterMenu('makanan', 'kuliner-lain')"
+          >
+            🥟 Kuliner Lainnya
+          </button>
+        </div>
+
+        <!-- CONTAINER TEMPAT MERENDER KARTU -->
+        <div id="container-katalog-menu" class="menu-container"></div>
+      </div>
+
+      <!-- SIDEBAR KERANJANG -->
+      <aside class="cart-panel">
+        <h2>Keranjang Belanja</h2>
+        <div class="cart-items" id="cartItemsList">
+          <p style="color: #888; text-align: center; padding: 20px 0">
+            Keranjang kamu masih kosong.
+          </p>
+        </div>
+        <div class="cart-meta-group">
+          <div class="cart-meta-row">
+            <label>Tipe Layanan:</label>
+            <select id="serviceType">
+              <option value="Online (Delivery)">Online (Delivery)</option>
+              <option value="Offline (Pick-Up / Dine-In)">
+                Offline (Pick-Up / Dine-In)
+              </option>
+            </select>
+          </div>
+          <div class="cart-meta-row">
+            <label>Metode Bayar:</label>
+            <select id="paymentMethod">
+              <option value="QRIS / E-Wallet">QRIS / E-Wallet</option>
+              <option value="Debit Card">Debit Card</option>
+              <option value="Cash (Kasir)">Cash (Kasir)</option>
+            </select>
+          </div>
+        </div>
+        <div class="cart-total">
+          <span>Total:</span><span id="cartTotalPrice">Rp 0</span>
+        </div>
+        <button class="checkout-btn" id="btnCheckout">
+          🛍️ Proses Transaksi Pesanan
+        </button>
+      </aside>
+    </main>
+
+    <!-- MODAL / POPUP ANIMASI KELUAR PESANAN BERHASIL -->
+    <div id="checkoutModal" class="modal-overlay">
+      <div class="modal-content">
+        <div class="success-icon">🎉</div>
+        <h2>Pesanan Berhasil Diterima!</h2>
+        <p>Pesanan Kopi JM kamu telah diteruskan ke sistem dapur Barista.</p>
+        <div id="modalReceipt" class="modal-receipt"></div>
+        <button class="modal-close-btn" id="btnCloseModal">
+          Tutup & Buat Pesanan Baru
+        </button>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+      <div class="footer-box">
+        <h4>Tentang Kopi JM</h4>
+        <p>
+          Kedai kopi modern yang menyajikan kebahagiaan di setiap seduhan.
+          Menyediakan ruang produktif yang nyaman bagi semua kalangan.
+        </p>
+      </div>
+      <div class="footer-box">
+        <h4>Hubungi Kontak Kami</h4>
+        <p>📧 Email: support@kopijm.com</p>
+        <a href="https://whatsapp.com" target="_blank" class="wa-footer-btn"
+          >💬 Chat Customer Service</a
+        >
+        <p style="margin-top: 10px">
+          📍 Lokasi: Central Jakarta City, Jakarta, Indonesia
+        </p>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Kopi JM. Hak Cipta Dilindungi. Sistem Online.</p>
+      </div>
+    </footer>
+
+    <script src="script.js?v=final"></script>
+  </body>
+</html>
